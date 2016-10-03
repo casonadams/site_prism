@@ -95,11 +95,12 @@ module SitePrism
     private
 
     def find_first(*find_args)
-      page.find(*find_args)
+      page.find(*find_args, wait: 25)
     end
 
     def find_all(*find_args)
-      page.all(*find_args)
+      page.find(*find_args, match: :first)
+      page.all(*find_args, wait: 25)
     end
 
     def element_exists?(*find_args)
