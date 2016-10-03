@@ -95,12 +95,12 @@ module SitePrism
     private
 
     def find_first(*find_args)
-      page.find(*find_args, wait: 25)
+      page.find(*find_args, wait: Capybara.default_max_wait_time)
     end
 
     def find_all(*find_args)
       page.find(*find_args, match: :first)
-      page.all(*find_args, wait: 25)
+      page.all(*find_args, Capybara.default_max_wait_time)
     end
 
     def element_exists?(*find_args)
